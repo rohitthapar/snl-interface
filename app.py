@@ -1,7 +1,8 @@
+#TWO PLAYER GAME 
+
 import random 
 import sys
-import time
-from tkinter.messagebox import NO 
+import time 
 
 DICE = 6
 
@@ -75,7 +76,7 @@ def snakeLadder(playerName, currentPosition, diceValue):
     if currentPosition > 100:
         print(str(100 - oldPosition) + "TO GO")
         return oldPosition
-    print("\n" + playerName + "MOVES FROM " + str(oldPosition) + "TO" + str(currentPosition))
+    print("\n" + playerName + " MOVES FROM " + str(oldPosition) + " TO " + str(currentPosition))
 
     if currentPosition in snakes:
         finalPosition =  snakes.get(currentPosition)
@@ -107,7 +108,7 @@ def gameStart():
 
     while True:
         time.sleep(1)
-        enterInput = input("\n\n Press Enter to Continue ")
+        enterInput = input("\n\nPress Enter to Continue ")
         diceValue = dice_value()
         print("\n MOVING....")
         playerOneCP = snakeLadder(playerOne, playerOneCP, diceValue)
