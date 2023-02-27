@@ -1,7 +1,6 @@
 import random
 import curses
 
-# Define the snakes and ladders on the game board
 snakes = {
     39 : 3,
     27 : 7,
@@ -40,7 +39,6 @@ curses.init_pair(1, curses.COLOR_CYAN, curses.COLOR_BLACK)
 curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
 board.clear()
 
-#function to display the game board
 def display_board():
     board.clear()
     board.addstr("   _________________\n", curses.color_pair(1))
@@ -75,13 +73,11 @@ def display_board():
         board.addstr("\n")
     board.addstr("   -----------------\n", curses.color_pair(1))
 
-# Define the main game loop
-def play_game():
+
+def gameStart():
     while True:
-        # Display the game board
         display_board()
 
-        # Get input from the player
         for player in players:
             board.addstr("\n{}, it's your turn. Press ENTER to roll the die.".format(player["name"]))
             board.getch()
@@ -102,5 +98,5 @@ def play_game():
                 curses.endwin()
                 return
 
-# Start the game
-play_game()
+if __name__ == "__main__":
+    gameStart()
