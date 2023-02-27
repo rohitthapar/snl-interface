@@ -27,21 +27,20 @@ ladders = {
     87 : 93,
     80 : 83
 }
-# Get the number and names of players from the user
+
 num_players = int(input("Enter the number of players: "))
 players = []
 for i in range(num_players):
     name = input("Enter player {} name: ".format(i+1))
     players.append({"name": name, "position": 0})
 
-# Initialize the game board GUI using the curses module
 board = curses.initscr()
 curses.start_color()
 curses.init_pair(1, curses.COLOR_CYAN, curses.COLOR_BLACK)
 curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
 board.clear()
 
-# Define a function to display the game board
+#function to display the game board
 def display_board():
     board.clear()
     board.addstr("   _________________\n", curses.color_pair(1))
@@ -76,7 +75,6 @@ def display_board():
         board.addstr("\n")
     board.addstr("   -----------------\n", curses.color_pair(1))
 
-# Define the main
 # Define the main game loop
 def play_game():
     while True:
@@ -90,7 +88,6 @@ def play_game():
             roll = random.randint(1, 6)
             board.addstr("\n{} rolls a {}.".format(player["name"], roll))
 
-            # Move the player's position and handle snakes and ladders
             player["position"] += roll
             if player["position"] > 100:
                 player["position"] = 100
